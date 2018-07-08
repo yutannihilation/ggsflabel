@@ -6,6 +6,8 @@ Authors@R: c(
     person("Hiroaki", "Yutani", , "yutani.ini@gmail.com", c("aut", "cre"))
     )
 Description: Provides several 'geom's which plot labels generated from 'sf' data.
+URL: https://yutannihilation.github.io/ggsflabel/
+BugReports: https://github.com/yutannihilation/ggsflabel/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

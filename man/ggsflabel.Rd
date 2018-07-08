@@ -8,6 +8,14 @@
 \description{
 Provides several 'geom's which plot labels generated from 'sf' data.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://yutannihilation.github.io/ggsflabel/}
+  \item Report bugs at \url{https://github.com/yutannihilation/ggsflabel/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Hiroaki Yutani \email{yutani.ini@gmail.com}
 
