@@ -63,6 +63,12 @@ they use \code{StatSfCoordinates} for \code{stat}. More precisely:
   \item \code{geom_sf_text_repel()} is the thin wrapper of \link[ggrepel]{geom_text_repel}.
 }
 }
+\section{Computed variables}{
+
+  Depending on the type of given sfc object, some variables between \code{X}, \code{Y}, \code{Z}
+  and \code{M} are available. Please read Esamples section how to use these.
+}
+
 \examples{
 nc <- sf::st_read(system.file("shape/nc.shp", package = "sf"), quiet = TRUE)
 # st_point_on_surface may not give correct results for longitude/latitude data

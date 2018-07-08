@@ -56,3 +56,20 @@ if (requireNamespace("gghighlight", quietly = TRUE)) {
     scale_y_continuous(expand = expand_scale(mult = 0.5))
 }
 ```
+
+### `lims()` for sf
+
+```{r}
+points_sfg <- sf::st_multipoint(as.matrix(expand.grid(x = -90:-70, y = 30:40)))
+points_sfc <- sf::st_sfc(points_sfg, crs = sf::st_crs(nc))
+
+p <- ggplot() +
+  geom_sf(data = nc, aes(fill = AREA)) +
+  geom_sf(data = points_sfc)
+
+# too wide
+p
+
+# shrink the limits to the bbox of nc
+p + lims_bbox(nc)
+```

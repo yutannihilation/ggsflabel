@@ -55,3 +55,27 @@ if (requireNamespace("gghighlight", quietly = TRUE)) {
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+
+### `lims()` for sf
+
+``` r
+points_sfg <- sf::st_multipoint(as.matrix(expand.grid(x = -90:-70, y = 30:40)))
+points_sfc <- sf::st_sfc(points_sfg, crs = sf::st_crs(nc))
+
+p <- ggplot() +
+  geom_sf(data = nc, aes(fill = AREA)) +
+  geom_sf(data = points_sfc)
+
+# too wide
+p
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+``` r
+
+# shrink the limits to the bbox of nc
+p + lims_bbox(nc)
+```
+
+<img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
