@@ -29,7 +29,7 @@ lims_bbox <- function(x) {
 
   bbox <- sf::st_bbox(x)
   ggplot2::lims(
-    x = bbox[c("xmin", "xmax")],
-    y = bbox[c("ymin", "ymax")]
+    x = unname(bbox[c("xmin", "xmax")]),
+    y = unname(bbox[c("ymin", "ymax")])
   )
 }
