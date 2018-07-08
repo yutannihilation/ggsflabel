@@ -3,6 +3,8 @@
 ggsflabel
 =========
 
+[![Travis build status](https://travis-ci.org/yutannihilation/ggsflabel.svg?branch=master)](https://travis-ci.org/yutannihilation/ggsflabel)
+
 Provides several `geom`s which plot labels generated from `sf` data.
 
 Installation
