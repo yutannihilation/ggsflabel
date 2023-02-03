@@ -1,9 +1,10 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+# `geom_sf_labe()` and `geom_sf_text()` now live in ggplot2!
+
 ggsflabel
 =========
 
-[![Travis build status](https://travis-ci.org/yutannihilation/ggsflabel.svg?branch=master)](https://travis-ci.org/yutannihilation/ggsflabel)
 
 Provides several `geom`s which plot labels generated from `sf` data.
 
