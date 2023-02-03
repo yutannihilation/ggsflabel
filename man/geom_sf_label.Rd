@@ -8,46 +8,126 @@
 \alias{geom_sf_label_repel}
 \alias{geom_sf_text_repel}
 \title{Label and Text 'Geom's}
-\format{An object of class \code{StatSfCoordinates} (inherits from \code{Stat}, \code{ggproto}, \code{gg}) of length 4.}
+\format{
+An object of class \code{StatSfCoordinates} (inherits from \code{Stat}, \code{ggproto}, \code{gg}) of length 4.
+}
 \usage{
 StatSfCoordinates
 
-geom_sf_label(mapping = NULL, data = NULL,
-  fun.geometry = sf::st_point_on_surface, ...)
+geom_sf_label(
+  mapping = NULL,
+  data = NULL,
+  fun.geometry = sf::st_point_on_surface,
+  ...
+)
 
-geom_sf_text(mapping = NULL, data = NULL,
-  fun.geometry = sf::st_point_on_surface, ...)
+geom_sf_text(
+  mapping = NULL,
+  data = NULL,
+  fun.geometry = sf::st_point_on_surface,
+  ...
+)
 
-geom_sf_label_repel(mapping = NULL, data = NULL,
-  fun.geometry = sf::st_point_on_surface, ...)
+geom_sf_label_repel(
+  mapping = NULL,
+  data = NULL,
+  fun.geometry = sf::st_point_on_surface,
+  ...
+)
 
-geom_sf_text_repel(mapping = NULL, data = NULL,
-  fun.geometry = sf::st_point_on_surface, ...)
+geom_sf_text_repel(
+  mapping = NULL,
+  data = NULL,
+  fun.geometry = sf::st_point_on_surface,
+  ...
+)
 }
 \arguments{
-\item{mapping}{Set of aesthetic mappings created by \code{\link[=aes]{aes()}} or
-\code{\link[=aes_]{aes_()}}. If specified and \code{inherit.aes = TRUE} (the
-default), it is combined with the default mapping at the top level of the
-plot. You must supply \code{mapping} if there is no plot mapping.}
+\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{aes()}}. If specified and
+\code{inherit.aes = TRUE} (the default), it is combined with the default mapping
+at the top level of the plot. You must supply \code{mapping} if there is no plot
+mapping.}
 
 \item{data}{The data to be displayed in this layer. There are three
 options:
 
 If \code{NULL}, the default, the data is inherited from the plot
-data as specified in the call to \code{\link[=ggplot]{ggplot()}}.
+data as specified in the call to \code{\link[ggplot2:ggplot]{ggplot()}}.
 
 A \code{data.frame}, or other object, will override the plot
 data. All objects will be fortified to produce a data frame. See
-\code{\link[=fortify]{fortify()}} for which variables will be created.
+\code{\link[ggplot2:fortify]{fortify()}} for which variables will be created.
 
 A \code{function} will be called with a single argument,
-the plot data. The return value must be a \code{data.frame.}, and
-will be used as the layer data.}
+the plot data. The return value must be a \code{data.frame}, and
+will be used as the layer data. A \code{function} can be created
+from a \code{formula} (e.g. \code{~ head(.x, 10)}).}
 
 \item{fun.geometry}{A function that takes a \code{sfc} object and returns a
 \code{sfc_POINT} with the same length as the input (e.g. \link[sf]{st_point_on_surface}).}
 
-\item{...}{Other arguments passed to the underlying function.}
+\item{...}{
+  Arguments passed on to \code{\link[ggplot2:geom_text]{ggplot2::geom_label}}, \code{\link[ggplot2:geom_text]{ggplot2::geom_text}}, \code{\link[ggrepel:geom_text_repel]{ggrepel::geom_label_repel}}, \code{\link[ggrepel:geom_text_repel]{ggrepel::geom_text_repel}}
+  \describe{
+    \item{\code{stat}}{The statistical transformation to use on the data for this
+layer, either as a \code{ggproto} \code{Geom} subclass or as a string naming the
+stat stripped of the \code{stat_} prefix (e.g. \code{"count"} rather than
+\code{"stat_count"})}
+    \item{\code{position}}{Position adjustment, either as a string, or the result of
+a call to a position adjustment function. Cannot be jointy specified with
+\code{nudge_x} or \code{nudge_y}.}
+    \item{\code{parse}}{If \code{TRUE}, the labels will be parsed into expressions and
+displayed as described in \code{?plotmath}.}
+    \item{\code{nudge_x,nudge_y}}{Horizontal and vertical adjustment to nudge labels by.
+Useful for offsetting text from points, particularly on discrete scales.
+Cannot be jointly specified with \code{position}.}
+    \item{\code{label.padding}}{Amount of padding around label. Defaults to 0.25 lines.}
+    \item{\code{label.r}}{Radius of rounded corners. Defaults to 0.15 lines.}
+    \item{\code{label.size}}{Size of label border, in mm.}
+    \item{\code{na.rm}}{If \code{FALSE}, the default, missing values are removed with
+a warning. If \code{TRUE}, missing values are silently removed.}
+    \item{\code{show.legend}}{logical. Should this layer be included in the legends?
+\code{NA}, the default, includes if any aesthetics are mapped.
+\code{FALSE} never includes, and \code{TRUE} always includes.
+It can also be a named logical vector to finely select the aesthetics to
+display.}
+    \item{\code{inherit.aes}}{If \code{FALSE}, overrides the default aesthetics,
+rather than combining with them. This is most useful for helper functions
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
+    \item{\code{check_overlap}}{If \code{TRUE}, text that overlaps previous text in the
+same layer will not be plotted. \code{check_overlap} happens at draw time and in
+the order of the data. Therefore data should be arranged by the label
+column before calling \code{geom_text()}. Note that this argument is not
+supported by \code{geom_label()}.}
+    \item{\code{box.padding}}{Amount of padding around bounding box, as unit or number.
+Defaults to 0.25. (Default unit is lines, but other units can be specified
+by passing \code{unit(x, "units")}).}
+    \item{\code{point.padding}}{Amount of padding around labeled point, as unit or
+number. Defaults to 0. (Default unit is lines, but other units can be
+specified by passing \code{unit(x, "units")}).}
+    \item{\code{min.segment.length}}{Skip drawing segments shorter than this, as unit or
+number. Defaults to 0.5. (Default unit is lines, but other units can be
+specified by passing \code{unit(x, "units")}).}
+    \item{\code{arrow}}{specification for arrow heads, as created by \code{\link[grid]{arrow}}}
+    \item{\code{force}}{Force of repulsion between overlapping text labels. Defaults
+to 1.}
+    \item{\code{force_pull}}{Force of attraction between a text label and its
+corresponding data point. Defaults to 1.}
+    \item{\code{max.time}}{Maximum number of seconds to try to resolve overlaps.
+Defaults to 0.5.}
+    \item{\code{max.iter}}{Maximum number of iterations to try to resolve overlaps.
+Defaults to 10000.}
+    \item{\code{max.overlaps}}{Exclude text labels that overlap too many things.
+Defaults to 10.}
+    \item{\code{xlim,ylim}}{Limits for the x and y axes. Text labels will be constrained
+to these limits. By default, text labels are constrained to the entire plot
+area.}
+    \item{\code{direction}}{"both", "x", or "y" -- direction in which to adjust position of labels}
+    \item{\code{seed}}{Random seed passed to \code{\link[base]{set.seed}}. Defaults to
+\code{NA}, which means that \code{set.seed} will not be called.}
+    \item{\code{verbose}}{If \code{TRUE}, some diagnostics of the repel algorithm are printed}
+  }}
 }
 \description{
 Provides label and text \code{geom}s that automatically retrieve the sf object's coordinates.

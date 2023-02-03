@@ -90,6 +90,7 @@ geom_sf_label_variants <- function(mapping = NULL,
 }
 
 #' @name geom_sf_label
+#' @inheritDotParams ggplot2::geom_label
 #' @export
 geom_sf_label <- function(mapping = NULL,
                           data = NULL,
@@ -105,6 +106,7 @@ geom_sf_label <- function(mapping = NULL,
 }
 
 #' @name geom_sf_label
+#' @inheritDotParams ggplot2::geom_text
 #' @export
 geom_sf_text <- function(mapping = NULL,
                           data = NULL,
@@ -121,6 +123,7 @@ geom_sf_text <- function(mapping = NULL,
 
 
 #' @name geom_sf_label
+#' @inheritDotParams ggrepel::geom_label_repel
 #' @export
 geom_sf_label_repel <- function(mapping = NULL,
                                 data = NULL,
@@ -136,6 +139,7 @@ geom_sf_label_repel <- function(mapping = NULL,
 }
 
 #' @name geom_sf_label
+#' @inheritDotParams ggrepel::geom_text_repel
 #' @export
 geom_sf_text_repel <- function(mapping = NULL,
                                 data = NULL,
