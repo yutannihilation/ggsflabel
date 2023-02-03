@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-# `geom_sf_labe()` and `geom_sf_text()` now live in ggplot2!
+# `geom_sf_label()` and `geom_sf_text()` now live in ggplot2!
 
 ggsflabel
 =========
